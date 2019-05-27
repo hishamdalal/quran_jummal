@@ -1,7 +1,7 @@
 <?php
 /******************************************************
  * @Project:  Arabic Jummal
- * @Version: 1.0.2
+ * @Version: 1.0.1
  * @Author: hishamdalal@gmail.com
  * @license:	GPL Version 3
  *****************************************************/
@@ -33,9 +33,13 @@ Class Jummal
 	
 	//------------------------------------------------------------------------//
 	function __construct(){
-		$this->normalize['ا'] = "ا|أ|إ|آ|ؤ|ء";
-		$this->normalize['ه'] = "ه|ة";
-		$this->normalize['ي'] = "ي|ى|ئ";
+		$this->normalize[]['اي'] = "اء";
+		$this->normalize[]['يا'] = "يئ";
+		$this->normalize[]['ا'] = "ءا";
+		$this->normalize[]['ي'] = "ي|ى|ئ";
+		$this->normalize[]['و'] = "ؤ";
+		$this->normalize[]['ا'] = "ءا|ا|أ|إ|آ";
+		$this->normalize[]['ه'] = "ه|ة";
 		//$this->normalize['_'] = "\d+";
 		
 		$this->counter = 0;
@@ -64,8 +68,10 @@ Class Jummal
 			#$str = preg_replace("/(\d+)/", '', $str);  //Remove digits
 			
 			// Replace 'hamza, taa marbota, alef maksora'
-			foreach($this->normalize as $letter=>$letters){
-				$str = preg_replace("/(".$this->normalize[$letter].")/", $letter, $str);
+			foreach($this->normalize as $k=>$ary){
+				foreach($ary as $letter=>$letters){
+					$str = preg_replace("/(".$ary[$letter].")/", $letter, $str);
+				}
 			}
 			
 			// Conver verses to array
