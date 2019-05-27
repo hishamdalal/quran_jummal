@@ -1,7 +1,7 @@
 <?php
 /******************************************************
  * @Project:  Arabic Jummal
- * @Version: 1.0.1
+ * @Version: 1.0.2
  * @Author: hishamdalal@gmail.com
  * @license:	GPL Version 3
  *****************************************************/
@@ -10,7 +10,13 @@ Class Jummal
 {
 	private $signs = ['﴿', '(', '﷽', "\n", "\r", "\t"];
 	#private $alphabet = ['ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي'];
-	
+	private $unicode = [
+			"~[\x{0600}-\x{061F}]~u",	
+			"~[\x{063B}-\x{063F}]~u",	
+			"~[\x{064B}-\x{065E}]~u",	
+			"~[\x{066A}-\x{06FF}]~u",	
+		];
+		
 	private $jummal_table = [
 		'ا'=>1,  'ب'=>2, 'ج'=>3, 'د'=>4, 'ه'=>5, 'و'=>6, 'ز'=>7, 'ح'=>8, 'ط'=>9,
 		'ي'=>10, 'ك'=>20, 'ل'=>30, 'م'=>40, 'ن'=>50, 'س'=>60, 'ع'=>70, 'ف'=>80, 'ص'=>90,
@@ -49,10 +55,7 @@ Class Jummal
 	function set_verses($verses){
 		$str = trim($verses) ? trim($verses) : "";
 		if($str){
-			$str = preg_replace("~[\x{0600}-\x{061F}]~u", "", $str); // Remove tashkeel signs
-			$str = preg_replace("~[\x{063B}-\x{063F}]~u", "", $str); // Remove tashkeel signs
-			$str = preg_replace("~[\x{064B}-\x{065E}]~u", "", $str); // Remove tashkeel signs
-			$str = preg_replace("~[\x{066A}-\x{06FF}]~u", "", $str); // Remove tashkeel signs
+			$str = preg_replace($this->unicode, "", $str); // Remove tashkeel signs
 
 			$str = str_replace($this->signs, '', $str); // Remove tashkeel signs
 
