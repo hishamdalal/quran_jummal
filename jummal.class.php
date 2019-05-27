@@ -1,7 +1,7 @@
 <?php
 /******************************************************
  * @Project:  Arabic Jummal
- * @Version: 1.0.1
+ * @Version: 1.0.3
  * @Author: hishamdalal@gmail.com
  * @license:	GPL Version 3
  *****************************************************/
