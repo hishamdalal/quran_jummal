@@ -25,7 +25,7 @@ include_once 'jummal.class.php';
 			$jummal->run();
 		}
 		?>
-
+		
 		<form method="post" class="center">
 			<div><textarea name="verses" cols="65" rows="10" 
 					placeholder="قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿1﴾ مَلِكِ النَّاسِ ﴿2﴾ إِلَٰهِ النَّاسِ ﴿3﴾ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿4﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿5﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿6﴾"
@@ -33,6 +33,7 @@ include_once 'jummal.class.php';
 			</div>
 			<div><input value="<?=__('Convert')?>" type="submit" /></div>
 		</form>
+		<a href="https://equran.me">موقع القرآن</a>
 		<br />
 
 		<?php $jummal->render(); ?>
