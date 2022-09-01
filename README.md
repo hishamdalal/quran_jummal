@@ -7,4 +7,4 @@
 <br>كما يمكن كتابة أي نص لحساب الجمل الخاص به
 
 رابط تجربة السكريبت:<br>
-http://elephant.pt00.net/quran_jummal/
+http://hisham.vastserve.com/my-scripts/quran_jummal/
